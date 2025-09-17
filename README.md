@@ -49,8 +49,8 @@ Com o auxílio de **Pyodide** e **IA**, consegui portar o código para o navegad
 ## 🔗 Links Úteis
 
 - 🌐 [Meu LinkedIn](https://www.linkedin.com/in/antônio-victor-freire)  
-- 💻 [Meu GitHub](https://github.com/victorfreireavfs)
-
+- 💻 [Projeto](https://victorfreireavfs.github.io/projeto_cadastro_funcionarios/)
+- 
 ---
 
 👨‍💻 Desenvolvido por **Victor Freire**
