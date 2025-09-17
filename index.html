@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Sistema de Gerenciamento de Funcionários</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Sistema de Gerenciamento de Funcionários</h1>
+  <p>Versão Web rodando com Python via Pyodide 🚀</p>
+
+  <div class="controls">
+    <button onclick="executarCodigo()">Abrir Sistema</button>
+  </div>
+
+  <textarea id="output" readonly></textarea>
+
+  <script src="https://cdn.jsdelivr.net/pyodide/v0.24.1/full/pyodide.js"></script>
+  <script>
+    let pyodide;
+    async function initPyodide() {
+      pyodide = await loadPyodide();
+    }
+    initPyodide();
+
+    async function executarCodigo() {
+      const response = await fetch("main.py");
+      const code = await response.text();
+      try {
+        let result = await pyodide.runPythonAsync(code);
+        document.getElementById("output").value = result ?? "Executado!";
+      } catch (err) {
+        document.getElementById("output").value = "Erro: " + err;
+      }
+    }
+  </script>
+</body>
+</html>
