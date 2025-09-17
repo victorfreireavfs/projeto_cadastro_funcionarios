@@ -8,16 +8,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-  <main>
-    <h1>Sistema de Gerenciamento de Funcionários</h1>
-    <p class="subtitle">Versão Web rodando com Python via Pyodide 🚀</p>
 
-    <div class="controls">
-      <button onclick="executarCodigo()">Executar Sistema</button>
-    </div>
+ <main>
+  <h1>Sistema de Gerenciamento de Funcionários</h1>
+  <p class="subtitle">Versão Web rodando com Python via Pyodide 🚀</p>
 
-    <textarea id="output" readonly></textarea>
-  </main>
+  <div class="controls">
+    <button onclick="executarCodigo()">Executar Sistema</button>
+  </div>
+
+  <div id="output-container">
+    <pre id="output">Clique em "Executar Sistema" para iniciar...</pre>
+  </div>
+</main>
 
   <footer>
     <div class="social">
@@ -28,27 +31,49 @@
         <i class="fab fa-github"></i> GitHub
       </a>
     </div>
-    <p>Desenvolvido por <strong>Antônio Victor Freire</strong></p>
+    <p>Desenvolvido por <strong>Victor Freire</strong></p>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/pyodide/v0.24.1/full/pyodide.js"></script>
-  <script>
-    let pyodide;
-    async function initPyodide() {
-      pyodide = await loadPyodide();
-    }
-    initPyodide();
+<script src="https://cdn.jsdelivr.net/pyodide/v0.24.1/full/pyodide.js"></script>
+<script>
+  let pyodide;
+  async function initPyodide() {
+    pyodide = await loadPyodide();
+  }
+  initPyodide();
 
-    async function executarCodigo() {
-      const response = await fetch("main.py");
-      const code = await response.text();
-      try {
-        let result = await pyodide.runPythonAsync(code);
-        document.getElementById("output").value = result ?? "Executado!";
-      } catch (err) {
-        document.getElementById("output").value = "Erro: " + err;
+  // Função que simula digitação
+  async function typeWriter(text, elementId, speed = 20) {
+    const output = document.getElementById(elementId);
+    output.textContent = ""; // limpa antes de escrever
+    let i = 0;
+    return new Promise(resolve => {
+      function typing() {
+        if (i < text.length) {
+          output.textContent += text.charAt(i);
+          i++;
+          setTimeout(typing, speed);
+        } else {
+          resolve();
+        }
       }
+      typing();
+    });
+  }
+
+  async function executarCodigo() {
+    const response = await fetch("main.py");
+    const code = await response.text();
+    try {
+      let result = await pyodide.runPythonAsync(code);
+      await typeWriter(result ?? "Executado!", "output", 15);
+    } catch (err) {
+      document.getElementById("output").textContent = "Erro: " + err;
     }
-  </script>
+  }
+</script>
+
+
+
 </body>
 </html>

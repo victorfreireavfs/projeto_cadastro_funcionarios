@@ -35,20 +35,29 @@ def remover_funcionario(id_remove):
 # -------------------------
 # Simulação de execução web
 # -------------------------
-saida = "Bem-vindo ao Sistema de Gerenciamento de Funcionários!\n"
-saida += "Desenvolvido por: Antônio Victor Freire\n\n"
 
-# Cadastro automático de exemplo
+saida = "=== SISTEMA DE GERENCIAMENTO DE FUNCIONÁRIOS ===\n"
+saida += "Bem-vindo!\nDesenvolvido por: Antônio Victor Freire\n\n"
+
+# 1 - Cadastro de 3 funcionários
+saida += "=== MENU DE CADASTRO ===\n"
 saida += cadastrar_funcionario(id_global, "João", "RH", 3500.0)
 saida += cadastrar_funcionario(id_global+1, "Maria", "TI", 4500.0)
+saida += cadastrar_funcionario(id_global+2, "Carlos", "Financeiro", 4000.0)
 
-# Consulta
+# 2 - Consulta geral
+saida += "\n=== MENU DE CONSULTA ===\n"
 saida += consultar_funcionarios()
 
-# Remoção
-saida += remover_funcionario(5437156)
+# 3 - Remoção
+saida += "\n=== MENU DE REMOÇÃO ===\n"
+saida += remover_funcionario(5437156)  # removendo João (primeiro cadastrado)
 
-# Consulta final
+# 4 - Consulta final
+saida += "\n=== MENU DE CONSULTA FINAL ===\n"
 saida += consultar_funcionarios()
+
+# 5 - Encerramento
+saida += "\n=== FIM DO PROGRAMA ===\nAté logo!\n"
 
 saida
