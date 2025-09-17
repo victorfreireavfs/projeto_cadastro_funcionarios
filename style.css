@@ -1,7 +1,30 @@
+/* Paleta monocromática (tons de cinza e preto) */
+
+:root {
+  --bg: #0d1117;
+  --card: #161b22;
+  --text: #e6edf3;
+  --border: #30363d;
+  --highlight: #58a6ff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-  font-family: Arial, sans-serif;
-  background: #0d1117;
-  color: #e6edf3;
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,23 +33,28 @@ body {
 
 h1 {
   margin-bottom: 10px;
-  color: #58a6ff;
+  color: var(--highlight);
+  text-align: center;
 }
 
-p {
+.subtitle {
   margin-bottom: 20px;
+  color: #8b949e;
+  text-align: center;
 }
 
 textarea {
-  width: 90%;
+  width: 100%;
+  max-width: 800px;
   height: 400px;
-  background: #161b22;
-  color: #e6edf3;
-  border: 1px solid #30363d;
-  padding: 10px;
-  border-radius: 6px;
+  background: var(--card);
+  color: var(--text);
+  border: 1px solid var(--border);
+  padding: 15px;
+  border-radius: 8px;
   resize: none;
-  margin-top: 15px;
+  margin-top: 20px;
+  font-size: 14px;
 }
 
 .controls {
@@ -34,14 +62,43 @@ textarea {
 }
 
 button {
-  background: #238636;
+  background: var(--highlight);
   color: white;
   border: none;
   padding: 10px 20px;
   border-radius: 6px;
   cursor: pointer;
+  transition: 0.3s;
 }
 
 button:hover {
-  background: #2ea043;
+  background: #1f6feb;
+}
+
+footer {
+  background: var(--card);
+  border-top: 1px solid var(--border);
+  padding: 15px;
+  text-align: center;
+}
+
+footer .social {
+  margin-bottom: 10px;
+}
+
+footer .social a {
+  color: var(--highlight);
+  margin: 0 10px;
+  text-decoration: none;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+footer .social a:hover {
+  color: #1f6feb;
+}
+
+footer p {
+  font-size: 14px;
+  color: #8b949e;
 }

@@ -4,16 +4,32 @@
   <meta charset="UTF-8">
   <title>Sistema de Gerenciamento de Funcionários</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-  <h1>Sistema de Gerenciamento de Funcionários</h1>
-  <p>Versão Web rodando com Python via Pyodide 🚀</p>
+  <main>
+    <h1>Sistema de Gerenciamento de Funcionários</h1>
+    <p class="subtitle">Versão Web rodando com Python via Pyodide 🚀</p>
 
-  <div class="controls">
-    <button onclick="executarCodigo()">Abrir Sistema</button>
-  </div>
+    <div class="controls">
+      <button onclick="executarCodigo()">Executar Sistema</button>
+    </div>
 
-  <textarea id="output" readonly></textarea>
+    <textarea id="output" readonly></textarea>
+  </main>
+
+  <footer>
+    <div class="social">
+      <a href="https://www.linkedin.com/in/antônio-victor-freire" target="_blank">
+        <i class="fab fa-linkedin"></i> LinkedIn
+      </a>
+      <a href="https://github.com/victorfreireavfs" target="_blank">
+        <i class="fab fa-github"></i> GitHub
+      </a>
+    </div>
+    <p>Desenvolvido por <strong>Antônio Victor Freire</strong></p>
+  </footer>
 
   <script src="https://cdn.jsdelivr.net/pyodide/v0.24.1/full/pyodide.js"></script>
   <script>
