@@ -32,10 +32,10 @@ Com o auxílio de **Pyodide** e **IA**, consegui portar o código para o navegad
 
 ## 📂 Estrutura do Projeto
 
-/projeto-funcionarios
-├── index.html # Interface web
-├── style.css # Estilização
-└── main.py # Código Python original (adaptado)
+- /projeto-funcionarios
+- ├── index.html # Interface web
+- ├── style.css # Estilização
+- └── main.py # Código Python original (adaptado)
 ---
 
 ## 📌 Observações Importantes
